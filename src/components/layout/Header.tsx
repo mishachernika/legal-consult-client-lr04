@@ -77,6 +77,9 @@ export default function Header() {
           <NavLink to={ROUTES.about} className={navLinkClass}>
             Про нас
           </NavLink>
+          <NavLink to={ROUTES.login} className={navLinkClass}>
+            Увійти
+          </NavLink>
           <button
             type="button"
             onClick={toggleTheme}
@@ -136,6 +139,9 @@ export default function Header() {
             </NavLink>
             <NavLink to={ROUTES.about} className={navLinkClass} onClick={() => setMenuOpen(false)}>
               Про нас
+            </NavLink>
+            <NavLink to={ROUTES.login} className={navLinkClass} onClick={() => setMenuOpen(false)}>
+              Увійти
             </NavLink>
           </div>
         </div>

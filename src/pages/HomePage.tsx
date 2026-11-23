@@ -77,9 +77,11 @@ export default function HomePage() {
           <Link to={ROUTES.about}>
             <Button size="lg">Дізнатися більше</Button>
           </Link>
-          <Button size="lg" variant="secondary">
-            Увійти
-          </Button>
+          <Link to={ROUTES.login}>
+            <Button size="lg" variant="secondary">
+              Увійти
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -164,9 +166,11 @@ export default function HomePage() {
           Зареєструйтеся за хвилину та поставте перше запитання перевіреному фахівцеві.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button size="lg" variant="secondary">
-            Створити акаунт
-          </Button>
+          <Link to={ROUTES.login}>
+            <Button size="lg" variant="secondary">
+              Створити акаунт
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

@@ -28,6 +28,9 @@ export default function Footer() {
           <Link to={ROUTES.about} className="hover:text-primary-600">
             Про нас
           </Link>
+          <Link to={ROUTES.login} className="hover:text-primary-600">
+            Увійти
+          </Link>
         </nav>
         <p>
           © {new Date().getFullYear()} {APP_NAME}. Усі права захищено.

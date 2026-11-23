@@ -60,8 +60,9 @@
 10. **Типи:** `types/api.types.ts`, `types/auth.types.ts` — під схему сервера ЛР03 (`PaginatedResponse<T>` = `{ data, pagination: { page, limit, total, totalPages, hasMore } }`, ролі `CLIENT/LAWYER/ADMIN`).
 11. **Змінні середовища:** `.env`, `.env.example`, `.env.development`, `.env.production`; `.env` додано до `.gitignore`.
 12. **Темна тема:** `@custom-variant dark` + `useTheme` (клас `dark` на `<html>`, localStorage, fallback на `prefers-color-scheme`); кнопка-перемикач у Header (SVG-іконки сонце/місяць).
-13. **README** зі структурою, інструкціями та скріншотами.
-14. **Перевірка:** `npm run lint` (чисто), `npm run format:check` (чисто), `npm run build` (`tsc -b && vite build` — 107 модулів, `dist/` зібрано), `npm run dev` (http://localhost:5173). Скріншоти сторінок — headless Chrome (puppeteer-core): світла/темна desktop, mobile 390px, about, 404. CI — `.github/workflows/ci.yml` (Node 24: lint + format:check + build).
+13. **Авторизація як інтеграційний приклад:** додано маршрут `/login` із вкладками входу/реєстрації. `AuthPage` використовує типізований `authService`, показує loading/error-стани, а після успішної відповіді зберігає JWT-токени. Це також робить коректним 401-редірект Axios-інтерцептора.
+14. **README** зі структурою, інструкціями, матрицею реалізованих вимог і прикладами інтерфейсу.
+15. **Перевірка:** `npm run lint` (чисто), `npm run format:check` (чисто), `npm run build` (`tsc -b && vite build` — 168 модулів, `dist/` зібрано), `npm run dev` (http://localhost:5173). Скріншоти сторінок — headless Chrome: світла/темна desktop, mobile 390px, about, 404, auth. CI — `.github/workflows/ci.yml` (Node 24: lint + format:check + build).
 
 ## 4. Ключові лістинги
 

@@ -6,7 +6,20 @@
 
 ## Опис проєкту
 
-React-клієнт для **онлайн-платформи юридичних консультацій** (серверна частина — окремий репозиторій `legal-consult-api-lr03`: Node.js + Express + Prisma + PostgreSQL + Socket.io). Ця лабораторна робота створює базову архітектуру фронтенду: налаштовані інструменти, маршрутизація, повторно використовувані UI-компоненти, тема з dark-режимом. Функціональні сторінки (вхід, консультації, чат) — у наступних лабораторних.
+React-клієнт для **онлайн-платформи юридичних консультацій**. Серверна частина розміщена в окремому репозиторії `legal-consult-api-lr03` (Node.js + Express + Prisma + PostgreSQL + Socket.io).
+
+У ЛР04 побудовано основу клієнтської частини: конфігурацію проєкту, архітектуру, дизайн-систему, маршрутизацію, dark-режим і інтеграційний шар для API. Додатково є мінімальна робоча сторінка входу / реєстрації: вона використовує реальні Axios-сервіси, зберігає пару JWT-токенів після успішної відповіді сервера та показує стан завантаження або помилку. Особистий кабінет, каталог юристів із серверними даними й чат розвиватимуться у наступних ЛР.
+
+## Реалізовано
+
+| Напрям | Результат |
+|---|---|
+| Основа | Vite 8, React 19, TypeScript 6, абсолютні імпорти `@/` |
+| UI | Button, Input, Card, Badge, Loading, ErrorBoundary; єдина Layout-оболонка |
+| Навігація | Home, About, Login/Register, 404; desktop і mobile-меню |
+| Стилізація | Tailwind CSS 4, власна палітра через `@theme`, світла й темна теми |
+| API | Axios instance, JWT request-interceptor, 401 response-interceptor, типізовані auth/specializations-сервіси |
+| Якість | ESLint 10, Prettier, strict TypeScript, CI на GitHub Actions |
 
 ## Технології
 
@@ -87,9 +100,24 @@ src/
 |---|---|
 | `/` | HomePage — hero, статистика, каталог сфер права з пошуком, кроки роботи |
 | `/about` | AboutPage — про платформу, технології, контакти |
+| `/login` | AuthPage — вкладки входу/реєстрації, стани loading/error, збереження JWT після успішної відповіді |
 | `*` | NotFoundPage — 404 |
 
-## Скріншоти
+## Приклади інтерфейсу
+
+### Головна сторінка
+
+![Головна сторінка LegalConsult у світлій темі](reports/screenshots/lab4-home-light.png)
+
+Головна демонструє адаптивну сітку, reusable-компоненти, пошук сфер права на клієнті та CTA-блок.
+
+### Вхід і реєстрація
+
+![Рисунок 1 — сторінка входу LegalConsult у темній темі](reports/screenshots/lab4-auth.png)
+
+Сторінка працює з `authService`: після успішного входу або реєстрації зберігає access/refresh токени, а помилки API показує користувачу в доступному `role="alert"` блоці.
+
+### Інші перевірені стани
 
 | Файл | Що на скріншоті |
 |---|---|
@@ -102,6 +130,14 @@ src/
 | `reports/screenshots/lab4-terminal-lint.png` | `npm run lint` + `npm run format:check` у Terminal |
 | `reports/screenshots/lab4-terminal-build.png` | `npm run build` (tsc -b && vite build) у Terminal |
 | `reports/screenshots/lab4-terminal-dev.png` | `npm run dev` — Vite піднявся на http://localhost:5173 |
+
+## Архітектурні рішення
+
+- `Layout` поєднує Header, Footer, `Outlet` і `ErrorBoundary`, тому всі маршрути мають єдиний каркас і захист від помилок рендерингу.
+- `src/services/api.ts` — єдине місце конфігурації HTTP: base URL з `VITE_API_URL`, timeout, Bearer-токен і нормалізація помилок.
+- `src/types/` — контракт із сервером ЛР01–ЛР03; Decimal-поля описані рядками, а пагінація — generic-типом `PaginatedResponse<T>`.
+- `useTheme` зберігає вибір у `localStorage`, синхронізує клас `dark` на `<html>` і має fallback на системну тему.
+- Компоненти приймають типізовані props, а `Button` підтримує variant, size і loading-стан без дублювання стилів.
 
 ## CI
 

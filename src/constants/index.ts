@@ -17,8 +17,10 @@ export const ROUTES = {
 
 export const CONTACTS = {
   email: 'info@legalconsult.ua',
-  phone: '+38 (044) 123-45-67',
-  address: 'м. Київ, вул. Хрещатик, 1',
+  phone: '095 839 4692',
+  phoneHref: '+380958394692',
+  address: 'м. Луцьк, вул. Кафедральна, 6',
+  addressUrl: 'https://www.google.com/search?kgmid=%2Fg%2F11c6y_7nfs',
 } as const;
 
 // Людинозчитущі підписи для enum'ів сервера (див. prisma/schema.prisma)

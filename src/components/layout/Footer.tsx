@@ -12,14 +12,18 @@ export default function Footer() {
             {CONTACTS.email}
           </a>
           {' · '}
-          <a
-            href={`tel:${CONTACTS.phone.replace(/[^+\d]/g, '')}`}
-            className="hover:text-primary-600"
-          >
+          <a href={`tel:${CONTACTS.phoneHref}`} className="hover:text-primary-600">
             {CONTACTS.phone}
           </a>
           {' · '}
-          {CONTACTS.address}
+          <a
+            href={CONTACTS.addressUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-primary-600"
+          >
+            {CONTACTS.address}
+          </a>
         </p>
         <nav className="flex gap-4">
           <Link to={ROUTES.home} className="hover:text-primary-600">

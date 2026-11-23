@@ -57,8 +57,23 @@ export default function AboutPage() {
                 {CONTACTS.email}
               </a>
             </li>
-            <li>Телефон: {CONTACTS.phone}</li>
-            <li>Адреса: {CONTACTS.address}</li>
+            <li>
+              Телефон:{' '}
+              <a href={`tel:${CONTACTS.phoneHref}`} className="text-primary-600 hover:underline">
+                {CONTACTS.phone}
+              </a>
+            </li>
+            <li>
+              Адреса:{' '}
+              <a
+                href={CONTACTS.addressUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary-600 hover:underline"
+              >
+                {CONTACTS.address}
+              </a>
+            </li>
           </ul>
         </Card>
       </section>

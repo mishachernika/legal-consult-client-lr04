@@ -66,10 +66,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="flex flex-col items-center gap-6 py-10 text-center">
         <Badge variant="info">Онлайн-платформа юридичних консультацій</Badge>
-        <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 md:text-5xl dark:text-white">
+        <h1 className="w-full max-w-3xl text-4xl font-bold tracking-tight text-gray-900 md:text-5xl dark:text-white">
           Юридична допомога онлайн — швидко, прозоро, у реальному часі
         </h1>
-        <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+        <p className="w-full max-w-2xl text-lg text-gray-600 dark:text-gray-300">
           Оберіть юриста зі сфери права, що вас цікавить, створіть консультацію та отримуйте
           відповіді в чаті — без дзвінків і паперів.
         </p>
